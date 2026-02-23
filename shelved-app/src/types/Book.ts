@@ -1,11 +1,14 @@
-export interface Book {
-  id?: string;
+// Type representing each book logged
+import { Timestamp } from "firebase/firestore";
+
+export type Book = {
+  id: string;          // firestore document ID
   title: string;
   author: string;
-  rating: number;
+  year: number;
   pages: number;
-  dateRead?: string;
-  reviewText: string;
-  coverURL?: string;
-  createdAt: Date;
-}
+  genre: string; 
+  rating: number;      // 1–5
+  review: string | null;
+  addedAt: Timestamp;
+};
