@@ -16,10 +16,10 @@ interface SpineProps {
 }
 
 const dashboardColors = [
-  "#E9C58E",
-  "#D99C8B",
-  "#94AFC3",
-  "#8FB8A7",
+  "#f3d19e",
+  "#e7a6a6",
+  "#a4c8e3",
+  "#99cfb9",
 ];
 
 const genreSymbolMap: Record<string, string> = {
@@ -36,7 +36,6 @@ const getHeightPercent = (rating: number) => {
 const getWidthPx = (pages: number) => {
   const raw = pages * 0.5;
   return Math.min(Math.max(raw, 80), 240);
-  return raw;
 };
 
 const Spine: React.FC<SpineProps> = ({ book, colorIndex, onClick }) => {
@@ -68,8 +67,7 @@ const Spine: React.FC<SpineProps> = ({ book, colorIndex, onClick }) => {
         style={{
           writingMode: "vertical-rl",
           transform: "rotate(180deg)",
-          fontWeight: 600,
-          fontSize: "24px",
+          fontSize: "28px",
           color: "#7b4a3b",
         }}
       >

@@ -117,7 +117,13 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
         <div style={{ fontSize: "80px" }}>shelved</div>
       </div>
 
-      {showKey && <KeyPopUp onClose={() => setShowKey(false)} />}
+
+      {/* Key Pop Up Modal */}
+      <KeyPopUp
+        isOpen={showKey}
+        onClose={() => setShowKey(false)}
+      />
+
     </div>
   );
 };
