@@ -88,32 +88,37 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
           flex: 1,
           display: "flex",
           alignItems: "flex-end",
-          padding: "0px",
           marginTop: "60px",
           gap: "10px",
+          overflowX: "auto",     // horizontal scroll
+          overflowY: "hidden",
+          paddingLeft: "240px",
         }}
       >
         {/* Left Vertical Button */}
         <button
           onClick={() => navigate("/shelve")}
           style={{
+            position: "fixed",
             writingMode: "vertical-rl",
             transform: "rotate(180deg)",
-            height: "50%",
+            height: "40%",
             border: "2.5px solid #7A4B3A",
             borderRadius: "20px",
             color: "#7A4B3A",
-            background: "transparent",
-            padding: "20px",
+            backgroundColor: "#F4EFE6",
+            padding: "0px 20px",
             cursor: "pointer",
             fontSize: "32px",
-            margin: "40px",
-            marginRight: "150px",
+            marginLeft: "-200px",
+            marginBottom: "40px",
+            zIndex: "100",
           }}
         >
           + shelve a book!
         </button>
 
+        
         {books.map((book, index) => (
           <Spine
             key={book.id}

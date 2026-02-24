@@ -51,7 +51,7 @@ const SignUp: React.FC = () => {
           textAlign: "center", 
           marginBottom: "14px",
         }}>
-          sign up!
+          sign up
         </div>
 
         <input

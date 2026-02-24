@@ -40,7 +40,7 @@ const Login: React.FC = () => {
           textAlign: "center", 
           marginBottom: "14px",
         }}>
-          welcome back!
+          welcome back
         </div>
 
         <input

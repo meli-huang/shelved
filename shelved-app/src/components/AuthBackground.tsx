@@ -42,14 +42,22 @@ export default function AuthBackground({ children }: Props) {
             style={{
               flex: 1,
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              fontSize: "80px",
+              fontSize: "90px",
               color: "#6b4032",
-              letterSpacing: "4px",
             }}
           >
             shelved
+
+            <div
+              style={{
+                fontSize: "22px",
+                marginTop: "10px",
+              }}>
+              your reading log turned data viz!
+            </div>
           </div>
 
           {/* Divider made up of stars! */}
