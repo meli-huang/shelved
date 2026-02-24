@@ -68,7 +68,7 @@ const Spine: React.FC<SpineProps> = ({ book, colorIndex, onClick }) => {
           writingMode: "vertical-rl",
           transform: "rotate(180deg)",
           fontSize: "28px",
-          color: "#7b4a3b",
+          color: "#7A4B3A",
         }}
       >
         {book.title}

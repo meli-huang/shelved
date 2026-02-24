@@ -44,7 +44,7 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
           height: "70vh",
           maxHeight: "1000px",
           maxWidth: "1400px",
-          backgroundColor: "#9fb7c9",
+          backgroundColor: "#a4c8e3",
           padding: "30px",
           display: "flex",
           justifyContent: "center",
@@ -77,18 +77,25 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
             <div style={{fontSize: "60px"}}>
                 {book.title}
             </div>
-            <div style={{fontSize: "24px"}}>
+            <div style={{fontSize: "28px"}}>
                 By: {book.author}
             </div>
           </div>
 
-          {/* Divider */}
+
+          {/* Divider made up of stars! */}
           <div
             style={{
-              width: "2px",
-              borderRight: "10px dashed #6b4032",
+              writingMode: "vertical-rl",
+              transform: "rotate(180deg)",
+              fontSize: "60px",
+              color: "#7A4B3A",
+              overflow: "hidden",
             }}
-          />
+          >
+            {"*".repeat(30)}
+          </div>
+
 
             {/* Right Side */}
             <div
@@ -104,7 +111,7 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
                 }}
             >
                 <div style={bookDataStyle}>
-                    <b style={bookDataStyle}> Rating: </b>{"⭐".repeat(book.rating)}</div>
+                    <b style={bookDataStyle}> Rating: </b>{"⭐️".repeat(book.rating)}</div>
                 <div style={bookDataStyle}>
                     <b style={bookDataStyle}> Genre: </b>{book.genre}</div>
                 <div style={bookDataStyle}>
@@ -115,19 +122,25 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
                 <div style={bookDataStyle}>
                     <b style={bookDataStyle}> Book Review: </b>
                     <br></br>
-                    {book.review}
+                    <div style={reviewTextStyle}>
+                      {book.review != null ? book.review : "No review yet!"}
+                    </div>
                 </div>
 
                 <button 
                     style={{
-                        padding: "12px",
+                        padding: "16px",
                         backgroundColor: "#6b4032",
                         color: "#e8dfcf",
                         border: "none",
                         marginTop: "20px",
+                        cursor: "pointer",
+                        borderRadius: "999px",
+                        fontSize: "20px",
+                        fontWeight: "bold",
                     }}
                     onClick={() => navigate("/")}> 
-                    back to my shelf! 
+                    ← back to my shelf
                 </button>
             
             </div>
@@ -138,9 +151,16 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
 };
 
 const bookDataStyle: React.CSSProperties = {
-    fontSize: "20px",
-    marginTop: "10px",
-    marginBottom: "10px",
+  fontSize: "26px",
+  marginTop: "10px",
+  marginBottom: "10px",
 }
+
+const reviewTextStyle: React.CSSProperties = {
+  margin: "16px 0px",
+  fontSize: "22px",
+}
+
+
 
 export default BookPopUp;

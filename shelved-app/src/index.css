@@ -1,7 +1,7 @@
 /* ensures global default settings! */
 * {
-    font-family: monospace;
-    font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 20px;
 }
 
 html, body, #root {

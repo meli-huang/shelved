@@ -54,11 +54,15 @@ function App() {
           }
         />
 
+        {/* /shelve still needs to render the Dashboard in the background! */}
         <Route
           path="/shelve"
           element={
             user ? (
-              <ShelveForm userId={user.uid} />
+              <>
+                <Dashboard userId={user.uid} />
+                <ShelveForm userId={user.uid} />
+              </>
             ) : (
               <Navigate to="/login" />
             )

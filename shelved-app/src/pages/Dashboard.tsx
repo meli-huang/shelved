@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import Spine from "../components/Spine";
@@ -23,19 +23,22 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBooks = async () => {
-      const ref = collection(db, "users", userId, "books");
-      const snapshot = await getDocs(ref);
+  
+    const ref = collection(db, "users", userId, "books");
 
+    // use onSnapshot to open a websocket connection to the firestore db
+    // always continuous refreshing of the pages
+    // onSnapshot returns unsubscribe() function, you call it at the end to clean up
+    const unsubscribe = onSnapshot(ref, (snapshot) => {
       const data: Book[] = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...(doc.data() as Omit<Book, "id">),
       }));
-
       setBooks(data);
-    };
+    });
 
-    fetchBooks();
+    return () => unsubscribe();
+
   }, [userId]);
 
   return (
@@ -54,7 +57,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
           display: "flex",
           alignItems: "flex-end",
           padding: "0px",
-          marginTop: "40px",
+          marginTop: "60px",
           gap: "10px",
         }}
       >
@@ -65,9 +68,9 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
             writingMode: "vertical-rl",
             transform: "rotate(180deg)",
             height: "50%",
-            border: "3px solid #7A4B3A",
+            border: "2.5px solid #7A4B3A",
             borderRadius: "20px",
-            color: "#7b4a3b",
+            color: "#7A4B3A",
             background: "transparent",
             padding: "20px",
             cursor: "pointer",
@@ -107,7 +110,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
             background: "transparent",
             border: "none",
             color: "#F4EFE6",
-            fontSize: "80px",
+            fontSize: "100px",
             cursor: "pointer",
           }}
         >

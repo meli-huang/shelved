@@ -22,7 +22,7 @@ export default function AuthBackground({ children }: Props) {
           height: "70vh",
           maxHeight: "1000px",
           maxWidth: "1400px",
-          backgroundColor: "#9fb7c9",
+          backgroundColor: "#a4c8e3",
           padding: "30px",
           display: "flex",
           justifyContent: "center",
@@ -53,13 +53,18 @@ export default function AuthBackground({ children }: Props) {
             shelved
           </div>
 
-          {/* Divider */}
+          {/* Divider made up of stars! */}
           <div
             style={{
-              width: "2px",
-              borderRight: "10px dashed #6b4032",
+              writingMode: "vertical-rl",
+              transform: "rotate(180deg)",
+              fontSize: "60px",
+              color: "#7A4B3A",
+              overflow: "hidden",
             }}
-          />
+          >
+            {"*".repeat(30)}
+          </div>
 
           {/* Right Side */}
           <div
