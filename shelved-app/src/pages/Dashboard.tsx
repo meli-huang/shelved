@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import Spine from "../components/Spine";
@@ -22,13 +24,11 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
   const [showKey, setShowKey] = useState(false);
   const navigate = useNavigate();
 
+  // use onSnapshot to open a websocket connection to the firestore db
+  // always continuous refreshing of the pages
+  // onSnapshot returns unsubscribe() function, you call it at the end to clean up
   useEffect(() => {
-  
     const ref = collection(db, "users", userId, "books");
-
-    // use onSnapshot to open a websocket connection to the firestore db
-    // always continuous refreshing of the pages
-    // onSnapshot returns unsubscribe() function, you call it at the end to clean up
     const unsubscribe = onSnapshot(ref, (snapshot) => {
       const data: Book[] = snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -41,6 +41,16 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
 
   }, [userId]);
 
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
   return (
     <div
       style={{
@@ -50,6 +60,28 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
         backgroundColor: "#F4EFE6",
       }}
     >
+
+      {/* Logout button */}
+      <button
+        onClick={handleLogout}
+        style={{
+          position: "absolute",
+          top: "40px",
+          left: "40px",
+          padding: "8px 16px",
+          cursor: "pointer",
+          color: "#7A4B3A",
+          backgroundColor: "#F4EFE6",
+          border: "2.5px solid #7A4B3A",
+          borderRadius: "999px",
+          fontSize: "24px",
+          fontWeight: "normal",
+        }}
+      >
+        ← log out
+      </button>
+
+
       {/* Shelf Area */}
       <div
         style={{

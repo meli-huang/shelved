@@ -45,9 +45,14 @@ const SignUp: React.FC = () => {
           width: "70%",
         }}
       >
-        <h2 style={{ fontSize: "32px", color: "#6b4032", textAlign: "center" }}>
+        <div style={{ 
+          fontSize: "36px", 
+          color: "#6b4032", 
+          textAlign: "center", 
+          marginBottom: "14px",
+        }}>
           sign up!
-        </h2>
+        </div>
 
         <input
           type="text"
@@ -93,21 +98,21 @@ const SignUp: React.FC = () => {
 };
 
 const inputStyle: React.CSSProperties = {
-  borderRadius: "24px",
+  borderRadius: "999px",
   padding: "20px",
   border: "2px solid #6b4032",
-  backgroundColor: "#e8dfcf",
+  backgroundColor: "#F4EFE6",
   outline: "none",
 };
 
 const buttonStyle: React.CSSProperties = {
-  borderRadius: "24px",
+  borderRadius: "999px",
   padding: "20px",
   border: "none",
   backgroundColor: "#6b4032",
-  color: "#e8dfcf",
+  color: "#F4EFE6",
   fontWeight: "bold",
-  fontSize: "24px",
+  fontSize: "28px",
   cursor: "pointer",
 };
 

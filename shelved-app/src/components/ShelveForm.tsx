@@ -121,7 +121,7 @@ export default function ShelveForm({ userId } : ShelveFormProps) {
             <button 
                 style={styles.backBtn}
                 onClick={() => navigate("/")}> 
-                ← back! 
+                ← back
             </button>
 
 

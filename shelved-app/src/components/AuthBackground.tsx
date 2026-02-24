@@ -31,7 +31,7 @@ export default function AuthBackground({ children }: Props) {
       >
         <div
           style={{
-            backgroundColor: "#e8dfcf",
+            backgroundColor: "#F4EFE6",
             display: "flex",
             width: "95%",
             height: "100%",
@@ -44,9 +44,8 @@ export default function AuthBackground({ children }: Props) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              fontSize: "72px",
+              fontSize: "80px",
               color: "#6b4032",
-              fontFamily: "monospace",
               letterSpacing: "4px",
             }}
           >
