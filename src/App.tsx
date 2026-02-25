@@ -5,7 +5,6 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import ShelveForm from "./components/ShelveForm";
-import BookPopUp from "./components/BookPopUp";
 
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth } from "./firebase";
@@ -63,17 +62,6 @@ function App() {
                 <Dashboard userId={user.uid} />
                 <ShelveForm userId={user.uid} />
               </>
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-
-        <Route
-          path="/book/:bookId"
-          element={
-            user ? (
-              <BookPopUp userId={user.uid} />
             ) : (
               <Navigate to="/login" />
             )
