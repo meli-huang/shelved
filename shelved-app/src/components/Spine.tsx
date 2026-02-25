@@ -12,7 +12,7 @@ interface Book {
 interface SpineProps {
   book: Book;
   colorIndex: number;
-  onClick: () => void;
+  onClick: (color: string) => void;
 }
 
 const dashboardColors = [
@@ -46,7 +46,7 @@ const Spine: React.FC<SpineProps> = ({ book, colorIndex, onClick }) => {
 
   return (
     <div
-      onClick={onClick}
+      onClick={() => onClick(color)}
       style={{
         height: `${heightPercent}%`,
         width: `${widthPx}px`,

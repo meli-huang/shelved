@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import Spine from "../components/Spine";
 import KeyPopUp from "../components/KeyPopUp";
+import BookPopUp from "../components/BookPopUp";
 
 interface Book {
   id: string;
@@ -23,6 +24,11 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
   const [books, setBooks] = useState<Book[]>([]);
   const [showKey, setShowKey] = useState(false);
   const navigate = useNavigate();
+
+  const [selectedBook, setSelectedBook] = useState<{
+    book: Book;
+    color: string;
+  } | null>(null);
 
   // use onSnapshot to open a websocket connection to the firestore db
   // always continuous refreshing of the pages
@@ -60,6 +66,18 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
         backgroundColor: "#F4EFE6",
       }}
     >
+
+
+      {/* Wraps the background content in a conditional blur for the book pop up */}
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          filter: selectedBook ? "blur(6px)" : "none",
+          transition: "filter 0.2s ease",
+        }}
+      >
 
       {/* Logout button */}
       <button
@@ -124,7 +142,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
             key={book.id}
             book={book}
             colorIndex={index}
-            onClick={() => navigate(`/book/${book.id}`)}
+            onClick={(color) => setSelectedBook({ book, color })}
           />
         ))}
       </div>
@@ -163,6 +181,19 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
         isOpen={showKey}
         onClose={() => setShowKey(false)}
       />
+
+      </div>
+
+
+      {/* Book pop up depending on what book is selected */}
+      {selectedBook && (
+        <BookPopUp
+          book={selectedBook.book}
+          borderColor={selectedBook.color}
+          onClose={() => setSelectedBook(null)}
+        />
+      )}
+
 
     </div>
   );

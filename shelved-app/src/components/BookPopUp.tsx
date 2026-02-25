@@ -1,59 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import { useParams, useNavigate } from "react-router-dom";
-import { db } from "../firebase";
+interface BookPopUpProps {
+  book: any;
+  borderColor: string;
+  onClose: () => void;
+}
 
-const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
-  const { bookId } = useParams();
-  const navigate = useNavigate();
-  const [book, setBook] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchBook = async () => {
-      if (!bookId) return;
-
-      const ref = doc(db, "users", userId, "books", bookId);
-      const snap = await getDoc(ref);
-      if (snap.exists()) {
-        setBook(snap.data());
-      }
-    };
-
-    fetchBook();
-  }, [bookId, userId]);
-
-  if (!book) return null;
-
-
+const BookPopUp: React.FC<BookPopUpProps> = ({ book, borderColor, onClose}) => {
   return (
-
-    // background of a book
+    
+    // background of book = blurred and clicks to return
     <div
       style={{
-        width: "100vw", 
-        height: "100vh",
-        backgroundColor: "#7b4a3b",
+        position: "fixed",
+        inset: 0,
+        backgroundColor: "rgba(0,0,0,0.35)",
+        backdropFilter: "blur(4px)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex: 1000,
       }}
+      onClick={onClose}
     >
+
+      {/* actual book pop up */}
       <div
         style={{
           width: "80vw",
           height: "70vh",
           maxHeight: "1000px",
           maxWidth: "1400px",
-          backgroundColor: "#a4c8e3",
+          backgroundColor: borderColor,
           padding: "30px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
+        onClick={(e) => e.stopPropagation()}
       >
         <div
           style={{
-            backgroundColor: "#e8dfcf",
+            backgroundColor: "#F4EFE6",
             display: "flex",
             width: "95%",
             height: "100%",
@@ -131,7 +117,7 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
                     style={{
                         padding: "16px",
                         backgroundColor: "#6b4032",
-                        color: "#e8dfcf",
+                        color: "#F4EFE6",
                         border: "none",
                         marginTop: "20px",
                         cursor: "pointer",
@@ -139,7 +125,7 @@ const BookPopUp: React.FC<{ userId: string }> = ({ userId }) => {
                         fontSize: "20px",
                         fontWeight: "bold",
                     }}
-                    onClick={() => navigate("/")}> 
+                    onClick={onClose}> 
                     ← back to my shelf
                 </button>
             
