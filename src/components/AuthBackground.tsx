@@ -45,7 +45,7 @@ export default function AuthBackground({ children }: Props) {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              fontSize: "90px",
+              fontSize: "4.5rem",
               color: "#6b4032",
             }}
           >
@@ -53,7 +53,7 @@ export default function AuthBackground({ children }: Props) {
 
             <div
               style={{
-                fontSize: "22px",
+                fontSize: "1.1rem",
                 marginTop: "10px",
               }}>
               your reading log turned data viz!
@@ -65,7 +65,7 @@ export default function AuthBackground({ children }: Props) {
             style={{
               writingMode: "vertical-rl",
               transform: "rotate(180deg)",
-              fontSize: "60px",
+              fontSize: "3rem",
               color: "#7A4B3A",
               overflow: "hidden",
             }}

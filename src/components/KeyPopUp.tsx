@@ -84,7 +84,7 @@ export default function KeyPopUp({ isOpen, onClose }: KeyPopUpProps) {
               position: "absolute",
               left: "40px",
               top: "40px",
-              fontSize: "60px",
+              fontSize: "3rem",
               backgroundColor: "#7B4A3B",
               color: "#F5EBDD",
               border: "none",
@@ -97,7 +97,7 @@ export default function KeyPopUp({ isOpen, onClose }: KeyPopUpProps) {
         <div style={{ display: "flex", alignItems: "center" }}>
           <h1
             style={{
-              fontSize: "4rem", // text-6xl ~ 60px
+              fontSize: "4rem",
               fontWeight: 300, // font-light
               letterSpacing: "0.05em", // tracking-wide
               margin: 0,

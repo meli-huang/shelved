@@ -46,7 +46,7 @@ const SignUp: React.FC = () => {
         }}
       >
         <div style={{ 
-          fontSize: "36px", 
+          fontSize: "1.8rem", 
           color: "#6b4032", 
           textAlign: "center", 
           marginBottom: "14px",
@@ -86,7 +86,7 @@ const SignUp: React.FC = () => {
         </button>
 
         {error && (
-          <p style={{ color: "red", fontSize: "12px" }}>{error}</p>
+          <p style={{ color: "red", fontSize: "0.6rem" }}>{error}</p>
         )}
 
         <p style={{ textAlign: "center", color: "#6b4032" }}>
@@ -112,7 +112,7 @@ const buttonStyle: React.CSSProperties = {
   backgroundColor: "#6b4032",
   color: "#F4EFE6",
   fontWeight: "bold",
-  fontSize: "28px",
+  fontSize: "1.4rem",
   cursor: "pointer",
 };
 

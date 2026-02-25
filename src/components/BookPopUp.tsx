@@ -60,10 +60,10 @@ const BookPopUp: React.FC<BookPopUpProps> = ({ book, borderColor, onClose}) => {
                 gap: "40px",
             }}
           >
-            <div style={{fontSize: "60px"}}>
+            <div style={{fontSize: "3rem"}}>
                 {book.title}
             </div>
-            <div style={{fontSize: "28px"}}>
+            <div style={{fontSize: "1.4rem"}}>
                 By: {book.author}
             </div>
           </div>
@@ -74,7 +74,7 @@ const BookPopUp: React.FC<BookPopUpProps> = ({ book, borderColor, onClose}) => {
             style={{
               writingMode: "vertical-rl",
               transform: "rotate(180deg)",
-              fontSize: "60px",
+              fontSize: "3rem",
               color: "#7A4B3A",
               overflow: "hidden",
             }}
@@ -122,7 +122,7 @@ const BookPopUp: React.FC<BookPopUpProps> = ({ book, borderColor, onClose}) => {
                         marginTop: "20px",
                         cursor: "pointer",
                         borderRadius: "999px",
-                        fontSize: "20px",
+                        fontSize: "1rem",
                         fontWeight: "bold",
                     }}
                     onClick={onClose}> 
@@ -137,14 +137,14 @@ const BookPopUp: React.FC<BookPopUpProps> = ({ book, borderColor, onClose}) => {
 };
 
 const bookDataStyle: React.CSSProperties = {
-  fontSize: "26px",
+  fontSize: "1.3rem",
   marginTop: "10px",
   marginBottom: "10px",
 }
 
 const reviewTextStyle: React.CSSProperties = {
   margin: "16px 0px",
-  fontSize: "22px",
+  fontSize: "1.1rem",
 }
 
 

@@ -92,7 +92,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
           backgroundColor: "#F4EFE6",
           border: "2.5px solid #7A4B3A",
           borderRadius: "999px",
-          fontSize: "24px",
+          fontSize: "1.2rem",
           fontWeight: "normal",
         }}
       >
@@ -127,7 +127,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
             backgroundColor: "#F4EFE6",
             padding: "0px 20px",
             cursor: "pointer",
-            fontSize: "32px",
+            fontSize: "1.6rem",
             marginLeft: "-200px",
             marginBottom: "40px",
             zIndex: "100",
@@ -165,14 +165,14 @@ const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
             background: "transparent",
             border: "none",
             color: "#F4EFE6",
-            fontSize: "100px",
+            fontSize: "5rem",
             cursor: "pointer",
           }}
         >
           *
         </button>
 
-        <div style={{ fontSize: "80px" }}>shelved</div>
+        <div style={{ fontSize: "4rem" }}>shelved</div>
       </div>
 
 

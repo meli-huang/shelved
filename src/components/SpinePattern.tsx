@@ -16,7 +16,7 @@ const SpinePattern: React.FC<SpinePatternProps> = ({ symbol, width }) => {
         overflow: "hidden",
         whiteSpace: "nowrap",
         fontWeight: 600,
-        fontSize: "32px",
+        fontSize: "1.6rem",
         color: "#7b4a3b",
         letterSpacing: "2px",
         userSelect: "none",

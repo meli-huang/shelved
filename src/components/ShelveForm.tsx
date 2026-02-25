@@ -370,7 +370,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: "999px",
     width: "20%",
     marginBottom: "30px",
-    fontSize: "24px",
+    fontSize: "1.2rem",
     textAlign: "center",   
     cursor: "pointer",
   }
